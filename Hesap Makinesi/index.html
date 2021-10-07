@@ -1,0 +1,82 @@
+<html lang="en"> 
+<head>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Hesap Makinesi/CSS/style.css">
+    <title>Hesap Makinesi</title>   
+</head>
+<body>
+
+
+    <div class="container">
+        <form name="form">
+            <input type="text" class="textview" name="textview">
+        </form>
+
+        <table>
+            <tr>
+                <td><input type="button" class="button" value="CE" onclick="clean()"></td>
+                <td><input type="button" class="button" value="<" onclick="back()"></td> 
+                <td><input type="button" class="button" value="/" onclick="Insert('/')"></td>
+                <td><input type="button" class="button" value="x" onclick="Insert('*')"></td>
+            </tr>
+                
+            <tr>
+                <td><input type="button" class="button" value="7" onclick="Insert(7)"></td>
+                <td><input type="button" class="button" value="8" onclick="Insert(8)"></td>
+                <td><input type="button" class="button" value="9" onclick="Insert(9)"></td>
+                <td><input type="button" class="button" value="-" onclick="Insert('-')"></td>
+
+            </tr>
+
+            <tr>
+                <td><input type="button" class="button" value="4" onclick="Insert(4)"></td>
+                <td><input type="button" class="button" value="5" onclick="Insert(5)"></td>
+                <td><input type="button" class="button" value="6" onclick="Insert(6)"></td>
+                <td><input type="button" class="button" value="+" onclick="Insert('+')"></td>
+            </tr>
+
+            <tr>
+                <td><input type="button" class="button" value="1" onclick="Insert(1)"></td>
+                <td><input type="button" class="button" value="2" onclick="Insert(2)"></td>
+                <td><input type="button" class="button" value="3" onclick="Insert(3)"></td>
+                <td rowspan="5"><input type="button" style="height: 100px;" class="button" value="=" onclick="equal()"></td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><input type="button" style="width:81px" class="button" value="0" onclick="Insert(0)"></td>
+                <td><input type="button" class="button" value="." onclick="Insert('.')"></td>
+              
+            </tr>
+
+                
+        </table>
+    </div>
+
+    <script type="text/javascript">
+
+    function Insert(num){
+        document.form.textview.value = document.form.textview.value + num;
+    }
+
+    function clean(){
+        document.form.textview.value= ""; 
+    }
+
+    function equal(){
+        var exp = document.form.textview.value;
+        document.form.textview.value= eval(exp);
+    }
+    function back(){
+        var exp = document.form.textview.value;
+        document.form.textview.value= exp.substring(0,exp.length-1); 
+        }
+
+
+    </script>
+
+    <script src="custom.js"></script>
+</body>
+
+
+</html>
